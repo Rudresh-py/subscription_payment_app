@@ -1,15 +1,18 @@
+{% load static %}
 <html>
 
 <head>
     <title>Thanks for your order!</title>
 </head>
+<link rel="stylesheet" href="{% static 'payment/style.css' %}">
 
 <body>
     <section>
-        <h3>
-            Congratulations!. your payment is succussefull
+        <h3 class="succuss">
+            Congratulations!. your payment is successful.....
         </h3>
-        <a href="{% url 'blog page' %}">Now you can access</a>
+        <h4> you can read our blog and enjoy now</h4>
+        <a href="{% url 'blog page' %}"><button class="button2"><h2>Open Blog</h2></button></a>
     </section>
 </body>
 

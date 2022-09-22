@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -5,27 +6,26 @@
     <title>Buy now</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
     <script src="https://js.stripe.com/v3/"></script>
+    <link rel="stylesheet" href="{% static 'payment/style.css' %}">
 </head>
 
 <body>
     <section>
         <div class="product">
-            <div class="description">
-                <h3>{{ product.name }}</h3>
-                <hr />
+            <div class="blogname">
+                <h2>Subscribe to <u>{{product.name }}:-</u></h2>
                 {% for price in prices %}
+                    </div>
 
                 <div>
-                    <h5>${{ price.price }}</h5>
                     <form action="{% url 'create-checkout-session' price.id %}" method="POST">
                         {% csrf_token %}
-                        <button type="submit">Checkout</button>
+                        <button type="submit" class="button1"><h3> subscribe </h3></button>
+                        <h3 class="price">${{ price.price }}/month</h3>
                     </form>
                 </div>
 
                 {% endfor %}
-            </div>
-        </div>
     </section>
 </body>
 

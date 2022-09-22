@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Read now</title>
 </head>
+<link rel="stylesheet" href="{% static 'payment/style.css' %}">
 
 <body>
     <section>
@@ -14,11 +16,9 @@
                 {% for blog in blogs %}
 
                 <div>
-                    <h5>{{ blog.blog }}</h5>
-                    <form action="{% url 'home' %}" method="POST">
-                        {% csrf_token %}
-                        <button type="submit">Back</button>
-                    </form>
+                    <p>{{ blog.blog }}</p>
+                <a href="{% url 'home' %}"><button class="button3"> Back </button> </a>
+
                 </div>
 
                 {% endfor %}

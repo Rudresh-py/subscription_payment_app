@@ -46,14 +46,20 @@ class HomePageView(TemplateView):
     def get_context_data(self, **kwargs):
         product = Product.objects.get(name='blog')
         prices = Price.objects.filter(product=product).values()
-        blogs = Blogs.objects.filter(product=product).values()
         context = super(HomePageView, self).get_context_data(**kwargs)
         context['product'] = product
         context['prices'] = prices
-        context['blogs'] = blogs
 
         return context
 
 
 class BlogPage(TemplateView):
     template_name = 'payment/blog_page.html'
+
+    def get_context_data(self, **kwargs):
+        product = Product.objects.get(name='blog')
+        blogs = Blogs.objects.filter(product=product).values()
+        context = super(BlogPage, self).get_context_data(**kwargs)
+        context['blogs'] = blogs
+
+        return context

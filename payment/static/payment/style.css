@@ -1,0 +1,41 @@
+.button1{
+    background-color: forestgreen;
+    border-radius: 10px;
+    width: 180px;
+    height: 50px;
+    color: white;
+}
+
+.price{
+    margin-left: 25px;
+}
+
+.blogname{
+    margin-left: 10px;
+}
+
+.succuss{
+    color: forestgreen;
+}
+
+h4{
+    color: dodgerblue;
+}
+
+.button2 {
+    background-color: green;
+    color: darkslateblue;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+}
+a{
+    text-decoration: none;
+}
+
+.button3{
+    background-color: green;
+    color: #681313;
+    width: 100px;
+    border-radius: 10px;
+}

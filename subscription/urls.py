@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from payment.views import HomePageView, BlogPage
+from payment.views import HomePageView
 
 urlpatterns = [
     path('', HomePageView.as_view(), name='home'),

@@ -15,3 +15,7 @@ class Price(models.Model):
     price = models.IntegerField(default=0)
 
 
+class Blogs(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    blog = models.TextField()
+

@@ -16,13 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from payment.views import HomePageView
+from payment.views import HomePageView, BlogPage
 
 urlpatterns = [
     path('', HomePageView.as_view(), name='home'),
     path('admin/', admin.site.urls),
     path('payment/', include('payment.urls')),
-
 ]
 
 

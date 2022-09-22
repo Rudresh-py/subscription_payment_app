@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 from django.views import View
 from django.views.generic.base import TemplateView
 
-from payment.models import Price,Product
+from payment.models import Price, Product, Blogs
 from django.shortcuts import get_object_or_404
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -44,10 +44,16 @@ class HomePageView(TemplateView):
     template_name = "payment/home.html"
 
     def get_context_data(self, **kwargs):
-
         product = Product.objects.get(name='blog')
         prices = Price.objects.filter(product=product).values()
+        blogs = Blogs.objects.filter(product=product).values()
         context = super(HomePageView, self).get_context_data(**kwargs)
         context['product'] = product
         context['prices'] = prices
+        context['blogs'] = blogs
+
         return context
+
+
+class BlogPage(TemplateView):
+    template_name = 'payment/blog_page.html'

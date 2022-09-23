@@ -14,7 +14,9 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 class CreateCheckoutSessionView(View):
-
+    '''
+    it will be redirect to stripe payment page
+    '''
     def post(self, request, *args, **kwargs):
         price = Price.objects.get(id=self.kwargs["pk"])
         checkout_session = stripe.checkout.Session.create(
@@ -33,14 +35,24 @@ class CreateCheckoutSessionView(View):
 
 
 class SuccessView(TemplateView):
+    '''
+    it view the payment succuss page
+
+    '''
     template_name = "payment/success.html"
 
 
 class CancelView(TemplateView):
+    '''
+    if payment will failed this page will view
+    '''
     template_name = "payment/cancel.html"
 
 
 class HomePageView(TemplateView):
+    '''
+    home page template view
+    '''
     template_name = "payment/home.html"
 
     def get_context_data(self, **kwargs):
@@ -54,6 +66,9 @@ class HomePageView(TemplateView):
 
 
 class BlogPage(TemplateView):
+    '''
+    this view is blogs page
+    '''
     template_name = 'payment/blog_page.html'
 
     def get_context_data(self, **kwargs):
